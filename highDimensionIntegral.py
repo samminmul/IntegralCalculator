@@ -1,5 +1,6 @@
 import math
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def integral_2():
@@ -193,3 +194,14 @@ print("반지름이 1인 6차원 반구의 적분 결과:", np.mean(i6arr))
 print("반지름이 1인 7차원 반구의 적분 결과:", np.mean(i7arr))
 print("반지름이 1인 8차원 반구의 적분 결과:", np.mean(i8arr))
 print("반지름이 1인 9차원 반구의 적분 결과:", np.mean(i9arr))
+
+x = [i for i in range(2, 10)]
+y = list(map(np.mean, [i2arr, i3arr, i4arr, i5arr, i6arr, i7arr, i8arr, i9arr]))
+
+plt.rcParams['font.family'] = 'Malgun Gothic'
+plt.rcParams['axes.unicode_minus'] = False
+plt.plot(x, y)
+plt.title('몬테 카를로 적분을 이용해 구한 n차원 반구의 부피')
+plt.xlabel('차원')
+plt.ylabel('n차원 반구의 부피')
+plt.show()
